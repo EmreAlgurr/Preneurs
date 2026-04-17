@@ -20,17 +20,22 @@
   color: #15803D;
 }
 
+.eco-score-badge.score-very-good {
+  background: linear-gradient(135deg, #D1FAE5 0%, #A7F3D0 100%);
+  color: #047857;
+}
+
 .eco-score-badge.score-good {
   background: linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 100%);
   color: #0369A1;
 }
 
-.eco-score-badge.score-moderate {
+.eco-score-badge.score-average {
   background: linear-gradient(135deg, #FEF9C3 0%, #FDE68A 100%);
   color: #A16207;
 }
 
-.eco-score-badge.score-low {
+.eco-score-badge.score-poor {
   background: linear-gradient(135deg, #FFE4E6 0%, #FECDD3 100%);
   color: #BE123C;
 }

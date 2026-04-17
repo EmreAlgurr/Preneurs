@@ -9,8 +9,8 @@ export default function HotelCard({ hotel }) {
   return (
     <div className="hotel-card">
       <div className="hotel-card-image">
-        {hotel.image ? (
-          <img src={hotel.image} alt={hotel.name} loading="lazy" />
+        {hotel.image_url ? (
+          <img src={hotel.image_url} alt={hotel.name} loading="lazy" />
         ) : (
           <div className="hotel-card-image-placeholder">
             <Building2 size={32} />
