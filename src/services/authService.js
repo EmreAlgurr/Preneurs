@@ -104,44 +104,44 @@ export function setupDemoSession() {
   try {
     const OWNER_HOTELS_KEY = 'ecorank_owner_hotels';
     let ownerHotels = JSON.parse(localStorage.getItem(OWNER_HOTELS_KEY)) || [];
-    const hasHotels = ownerHotels.some(h => h.ownerId === 'demo-admin-id');
     
-    if (!hasHotels) {
-      const dummyHotels = [
-        {
-          id: 'h-demo-1',
-          ownerId: 'demo-admin-id',
-          name: 'Green Paradise Resort',
-          city: 'Antalya',
-          district: 'Kemer',
-          address: 'Kemer Sahil Yolu No:10',
-          image: '',
-          ecoScore: 92,
-          roomCount: 150,
-          bedCount: 300,
-          maxGuests: 400,
-          price: 450,
-          createdAt: new Date().toISOString()
-        },
-        {
-          id: 'h-demo-2',
-          ownerId: 'demo-admin-id',
-          name: 'Eco Lodge Izmir',
-          city: 'Izmir',
-          district: 'Seferihisar',
-          address: 'Teos Yolu No:5',
-          image: '',
-          ecoScore: 88,
-          roomCount: 40,
-          bedCount: 60,
-          maxGuests: 90,
-          price: 220,
-          createdAt: new Date().toISOString()
-        }
-      ];
-      ownerHotels = [...ownerHotels, ...dummyHotels];
-      localStorage.setItem(OWNER_HOTELS_KEY, JSON.stringify(ownerHotels));
-    }
+    // Always reset demo hotels to fresh state with images on demo login
+    ownerHotels = ownerHotels.filter(h => h.ownerId !== 'demo-admin-id');
+    
+    const dummyHotels = [
+      {
+        id: 'h-demo-1',
+        ownerId: 'demo-admin-id',
+        name: 'Green Paradise Resort',
+        city: 'Antalya',
+        district: 'Kemer',
+        address: 'Kemer Sahil Yolu No:10',
+        image: '/hotels/fallback-2.jpg',
+        ecoScore: 92,
+        roomCount: 150,
+        bedCount: 300,
+        maxGuests: 400,
+        price: 450,
+        createdAt: new Date().toISOString()
+      },
+      {
+        id: 'h-demo-2',
+        ownerId: 'demo-admin-id',
+        name: 'Eco Lodge Izmir',
+        city: 'Izmir',
+        district: 'Seferihisar',
+        address: 'Teos Yolu No:5',
+        image: '/hotels/fallback-4.jpg',
+        ecoScore: 88,
+        roomCount: 40,
+        bedCount: 60,
+        maxGuests: 90,
+        price: 220,
+        createdAt: new Date().toISOString()
+      }
+    ];
+    ownerHotels = [...ownerHotels, ...dummyHotels];
+    localStorage.setItem(OWNER_HOTELS_KEY, JSON.stringify(ownerHotels));
   } catch (e) {
     // Ignore Storage issues
   }
