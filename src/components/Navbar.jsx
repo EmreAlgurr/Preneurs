@@ -32,7 +32,7 @@ export default function Navbar({ solid = false }) {
           <div className="navbar-brand-icon">
             <Leaf size={20} />
           </div>
-          <span>EcoVoyage</span>
+          <span>EcoRank</span>
         </Link>
 
         <button

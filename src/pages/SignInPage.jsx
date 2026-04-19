@@ -9,7 +9,7 @@ export default function SignInPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const { signIn } = useAuth();
+  const { signIn, signInDemo } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -34,7 +34,7 @@ export default function SignInPage() {
               <div className="auth-logo-icon">
                 <Leaf size={22} />
               </div>
-              EcoVoyage
+              EcoRank
             </div>
             <h1 className="auth-title">Welcome Back</h1>
             <p className="auth-subtitle">Sign in to manage your hotel listings</p>
@@ -72,6 +72,20 @@ export default function SignInPage() {
             <button type="submit" className="btn btn-primary btn-lg w-full">
               <LogIn size={18} />
               Sign In
+            </button>
+
+            <div style={{ margin: '16px 0', textAlign: 'center', color: '#9ca3af' }}>or</div>
+
+            <button 
+              type="button" 
+              className="btn btn-secondary btn-lg w-full"
+              style={{ background: '#f8fafc', color: '#0f172a', border: '1px solid #e2e8f0' }}
+              onClick={() => {
+                const result = signInDemo();
+                if (result.success) navigate('/dashboard');
+              }}
+            >
+              🚀 One-Click Demo Login
             </button>
           </form>
 

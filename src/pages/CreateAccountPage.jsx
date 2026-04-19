@@ -40,7 +40,7 @@ export default function CreateAccountPage() {
               <div className="auth-logo-icon">
                 <Leaf size={22} />
               </div>
-              EcoVoyage
+              EcoRank
             </div>
             <h1 className="auth-title">Create Account</h1>
             <p className="auth-subtitle">Register as a hotel owner to list your property</p>

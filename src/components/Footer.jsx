@@ -10,7 +10,7 @@ export default function Footer() {
           <div>
             <div className="footer-brand">
               <div className="footer-brand-icon"><Leaf size={16} /></div>
-              EcoVoyage
+              EcoRank
             </div>
             <p className="footer-description">
               Empowering travelers to make sustainable choices.
@@ -45,7 +45,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <span>© 2026 EcoVoyage. All rights reserved.</span>
+          <span>© 2026 EcoRank. All rights reserved.</span>
           <div className="footer-social">
             <a href="#" aria-label="Blog"><MessageCircle size={16} /></a>
             <a href="#" aria-label="Share"><Share2 size={16} /></a>

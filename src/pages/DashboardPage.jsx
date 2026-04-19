@@ -156,10 +156,17 @@ export default function DashboardPage() {
                   <FileQuestion size={12} /> Community Impact
                 </span>
               </div>
-              <button className="btn btn-outline btn-lg" style={{ marginRight: '12px' }}>
+              <button 
+                className="btn btn-outline btn-lg" 
+                style={{ marginRight: '12px' }}
+                onClick={() => alert('Redirecting to the new Sustainability Assessment module...')}
+              >
                 <ClipboardCheck size={18} /> Create Sustainability Form
               </button>
-              <button className="btn btn-secondary btn-lg">
+              <button 
+                className="btn btn-secondary btn-lg"
+                onClick={() => alert('Opening the CO₂ Scoring calculation tool...')}
+              >
                 <BarChart3 size={18} /> Open CO₂ Scoring Form
               </button>
             </div>

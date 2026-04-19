@@ -153,8 +153,23 @@ export default function HotelDetailPage() {
             <div className="hotel-detail-sidebar">
               <div className="hotel-detail-booking-card animate-fade-in-up stagger-2">
                 <div className="hotel-detail-price-display">
-                  <div className="hotel-detail-price-big">
-                    ₺{hotel.price} <span>/ night</span>
+                  <div className="hotel-detail-price-big" style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                    {hotel.ecoScore >= 80 ? (
+                      <>
+                        <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
+                          <span style={{ textDecoration: 'line-through', color: '#9ca3af', fontSize: '20px', fontWeight: 'normal' }}>₺{hotel.price}</span>
+                          <span style={{ color: '#16a34a' }}>₺{Math.round(hotel.price * 0.85)}</span>
+                          <span style={{ fontSize: '16px', color: '#6b7280', fontWeight: 'normal' }}>/ night</span>
+                        </div>
+                        <div style={{ background: '#dcfce7', color: '#166534', padding: '6px 12px', borderRadius: '6px', fontSize: '13px', fontWeight: 'bold', display: 'inline-flex', alignItems: 'center', gap: '6px', width: 'fit-content' }}>
+                          🌿 15% Eco Reward Applied
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        ₺{hotel.price} <span>/ night</span>
+                      </>
+                    )}
                   </div>
                 </div>
 
@@ -163,7 +178,10 @@ export default function HotelDetailPage() {
                   <EcoScoreBadge score={hotel.ecoScore} size="lg" />
                 </div>
 
-                <button className="btn btn-primary btn-lg w-full">
+                <button 
+                  className="btn btn-primary btn-lg w-full"
+                  onClick={() => alert(`Demo Booking for ${hotel.name} confirmed! In a real app, this would route to a secure payment gateway.`)}
+                >
                   Book Now (Demo)
                 </button>
 

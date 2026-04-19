@@ -3,7 +3,7 @@
 
 import seedHotels from '../data/hotels';
 
-const OWNER_HOTELS_KEY = 'ecovoyage_owner_hotels';
+const OWNER_HOTELS_KEY = 'ecorank_owner_hotels';
 
 function getOwnerHotels() {
   try {

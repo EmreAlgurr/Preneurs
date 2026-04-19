@@ -53,7 +53,10 @@ export default function TransportCard({ transport }) {
         <div className="transport-card-price-value">
           ₺{transport.price} <span>/ person</span>
         </div>
-        <button className="btn btn-sm btn-outline">
+        <button 
+          className="btn btn-sm btn-outline"
+          onClick={() => alert(`Redirecting to ${transport.provider} website for schedule details and ticketing...`)}
+        >
           <ExternalLink size={12} />
           View Details
         </button>

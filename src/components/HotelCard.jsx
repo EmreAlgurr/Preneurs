@@ -44,8 +44,20 @@ export default function HotelCard({ hotel }) {
 
         <div className="hotel-card-footer">
           <div>
-            <div className="hotel-card-price">
-              ₺{hotel.price} <span>/ night</span>
+            <div className="hotel-card-price" style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '6px' }}>
+              {hotel.ecoScore >= 80 ? (
+                <>
+                  <span style={{ textDecoration: 'line-through', color: '#9ca3af', fontSize: '0.85em' }}>₺{hotel.price}</span>
+                  <span style={{ color: '#16a34a', fontWeight: 'bold' }}>₺{Math.round(hotel.price * 0.85)}</span>
+                  <span style={{ fontSize: '12px', color: '#6b7280' }}>/ night</span>
+                  <div style={{ width: '100%' }}></div>
+                  <span style={{ background: '#dcfce7', color: '#166534', padding: '2px 8px', borderRadius: '4px', fontSize: '11px', fontWeight: 'bold', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                    🌿 15% Eco Reward
+                  </span>
+                </>
+              ) : (
+                <>₺{hotel.price} <span>/ night</span></>
+              )}
             </div>
             <div className="hotel-card-meta">
               <span className="hotel-card-meta-item">
