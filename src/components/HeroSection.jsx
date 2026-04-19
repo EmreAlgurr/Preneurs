@@ -1,9 +1,15 @@
 import { Sparkles } from 'lucide-react';
+import heroImg from '../assets/hero-bg.jpg';
 import './HeroSection.css';
 
 export default function HeroSection({ children }) {
   return (
     <section className="hero">
+      <div className="hero-bg">
+        <img src={heroImg} alt="Beautiful beach destination" />
+        <div className="hero-bg-overlay" />
+      </div>
+
       <div className="hero-decor">
         <div className="hero-decor-circle" />
         <div className="hero-decor-circle" />

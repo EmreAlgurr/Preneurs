@@ -6,7 +6,7 @@ import {
 } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { EcoScoreBadge, EcoScoreRing } from '../components/EcoScoreBadge';
+import { EcoScoreBadge, EcoScoreRing, getEcoStatus } from '../components/EcoScoreBadge';
 import { getHotelById } from '../services/hotelService';
 import './HotelDetailPage.css';
 
@@ -39,34 +39,42 @@ export default function HotelDetailPage() {
     <div className="page-wrapper">
       <Navbar solid />
       <div className="hotel-detail-page">
-        {/* Hero Image */}
-        <div className="hotel-detail-hero">
-          {hotel.image ? (
-            <img src={hotel.image} alt={hotel.name} />
-          ) : (
-            <div className="hotel-detail-hero-placeholder">
-              <Building2 size={48} />
-              {hotel.name}
-            </div>
-          )}
-          <div className="hotel-detail-hero-overlay">
-            <div className="container hotel-detail-hero-content">
-              <div>
-                <h1 className="hotel-detail-name">{hotel.name}</h1>
-                <div className="hotel-detail-location">
-                  <MapPin size={16} />
-                  {hotel.district}, {hotel.city}
-                </div>
+        <div className="container hotel-detail-top-container">
+          <button className="hotel-detail-back" onClick={() => navigate(-1)}>
+            <ArrowLeft size={16} /> Back to results
+          </button>
+          
+          <div className="hotel-detail-header-row">
+            <div className="hotel-detail-header-left">
+              <h1 className="hotel-detail-name-new">{hotel.name}</h1>
+              <div className="hotel-detail-location-new">
+                <MapPin size={16} />
+                {hotel.district}, {hotel.city}
               </div>
-              <EcoScoreBadge score={hotel.ecoScore} size="lg" />
             </div>
+            
+            <div className="hotel-detail-eco-badge-new">
+              <div className="eco-badge-label">Eco Rating</div>
+              <div className="eco-badge-score-row">
+                <span className="eco-badge-number">{hotel.ecoScore}/100</span>
+                <span className="eco-badge-status">{getEcoStatus(hotel.ecoScore)}</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="hotel-detail-media">
+            {hotel.image_url ? (
+              <img src={hotel.image_url} alt={hotel.name} />
+            ) : (
+              <div className="hotel-detail-media-placeholder">
+                <Building2 size={48} />
+                {hotel.name}
+              </div>
+            )}
           </div>
         </div>
 
         <div className="container hotel-detail-content">
-          <button className="hotel-detail-back" onClick={() => navigate(-1)}>
-            <ArrowLeft size={16} /> Back to results
-          </button>
 
           <div className="hotel-detail-grid">
             {/* Main Content */}

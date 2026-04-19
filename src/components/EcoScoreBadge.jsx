@@ -1,18 +1,20 @@
 import { Leaf } from 'lucide-react';
 import './EcoScoreBadge.css';
 
-function getScoreClass(score) {
-  if (score >= 85) return 'excellent';
-  if (score >= 70) return 'good';
-  if (score >= 50) return 'moderate';
-  return 'low';
+export function getEcoStatus(score) {
+  if (score >= 90) return 'Excellent';
+  if (score >= 80) return 'Very Good';
+  if (score >= 70) return 'Good';
+  if (score >= 60) return 'Average';
+  return 'Poor';
 }
 
-function getScoreLabel(score) {
-  if (score >= 85) return 'Excellent';
-  if (score >= 70) return 'Good';
-  if (score >= 50) return 'Moderate';
-  return 'Needs Work';
+function getScoreClass(score) {
+  if (score >= 90) return 'excellent';
+  if (score >= 80) return 'very-good';
+  if (score >= 70) return 'good';
+  if (score >= 60) return 'average';
+  return 'poor';
 }
 
 export function EcoScoreBadge({ score, size = 'sm' }) {
@@ -22,7 +24,7 @@ export function EcoScoreBadge({ score, size = 'sm' }) {
       <span className="eco-score-icon">
         <Leaf size={size === 'lg' ? 16 : 12} />
       </span>
-      <span>{score}/100 — {getScoreLabel(score)}</span>
+      <span>{score}/100 — {getEcoStatus(score)}</span>
     </div>
   );
 }
@@ -37,9 +39,10 @@ export function EcoScoreRing({ score, size = 'sm' }) {
 
   const colors = {
     excellent: '#22C55E',
+    'very-good': '#10B981',
     good: '#0EA5E9',
-    moderate: '#F59E0B',
-    low: '#EF4444',
+    average: '#F59E0B',
+    poor: '#EF4444',
   };
 
   return (
